@@ -114,33 +114,18 @@ GEMINI_MAX_OUTPUT_TOKENS = 700
 
 ---
 ## Pipeline Architecture
-+------------------+
-| Load Dataset |
-+------------------+
-↓
-+------------------+
-| Clean Text |
-+------------------+
-↓
-+------------------+
-| Chunking |
-+------------------+
-↓
-+------------------+
-| Embeddings |
-+------------------+
-↓
-+------------------+
-| Retrieval |
-+------------------+
-↓
-+------------------+
-| Prompt + LLM |
-+------------------+
-↓
-+------------------+
-| Evaluation |
-+------------------+
+
+| Step | Stage | Description |
+|------|-------|-------------|
+| 1 | Load Dataset | Load the processed Djinni job description dataset with reference summaries |
+| 2 | Clean Text | Clean the `Long Description` column by removing noise and normalising whitespace |
+| 3 | Chunking | Split job descriptions into fixed-size chunks for RAG experiments |
+| 4 | Embedding | Generate embeddings using `sentence-transformers/all-MiniLM-L6-v2` |
+| 5 | Vector Storage | Store chunk embeddings in ChromaDB |
+| 6 | Retrieval | Retrieve Top-K relevant chunks using cosine similarity |
+| 7 | Prompt Construction | Build prompts using zero-shot, few-shot, style-based, chain-of-thought, or self-consistency strategies |
+| 8 | LLM Generation | Generate structured summaries using selected LLMs |
+| 9 | Evaluation | Compute ROUGE-L, semantic similarity, IRR, hallucination, compression, grounding, and faithfulness metrics |
 
 
 ---
@@ -212,40 +197,20 @@ Structured output format:
 ---
 
 ## Project Structure
-outputs/
-│
-├── final_comparision/
-│ └── summarization/
-│ ├── rag/
-│ │ └── rag_summarization_final_metrics_all_experiments.csv
-│ └── non_rag/
-│ | └── non_rag_summarization_final_metrics_all_experiments.csv
-│
-├── experiments/
-│ ├── summarization_with_RAG/
-│ │ └── experiment_folders/
-│ │
-│ └── summarization_without_RAG/
-│ | └── experiment_folders/
-│
-combining_outputs/
-│ └── combining_outputs_of_experiments.ipynb
-│
-data/
-│ └── reference_summaries/
-│ | └── djinni_with_reference_summaries.csv
-│
-experiments/
-│ ├── summarization_with_rag/
-│ │ └── experiment_notebooks
-│ │
-│ └── summarization_without_rag/
-│ | └── experiment_notebooks
-│
-docs/
-│ └── experiment_lists/
-│ | ├── summarization_without_rag.xlsx
-│ | └── summarization_with_rag.xlsx
+## Project Structure
+
+| Folder / File | Description |
+|--------------|-------------|
+| `data/reference_summaries/djinni_with_reference_summaries.csv` | Processed dataset containing job descriptions and Gemini-generated reference summaries |
+| `outputs/experiments/summarization_with_RAG/` | Output folders for each RAG summarization experiment |
+| `outputs/experiments/summarization_without_RAG/` | Output folders for each non-RAG summarization experiment |
+| `outputs/final_comparision/summarization/rag/rag_summarization_final_metrics_all_experiments.csv` | Combined final metrics for all RAG summarization experiments |
+| `outputs/final_comparision/summarization/non_rag/non_rag_summarization_final_metrics_all_experiments.csv` | Combined final metrics for all non-RAG summarization experiments |
+| `combining_outputs/combining_outputs_of_experiments.ipynb` | Notebook used to combine individual experiment outputs |
+| `experiments/summarization_with_rag/` | Colab notebooks for RAG-based summarization experiments |
+| `experiments/summarization_without_rag/` | Colab notebooks for non-RAG summarization experiments |
+| `docs/experiment_lists/summarization_with_rag.xlsx` | Experiment list and configuration tracking for RAG experiments |
+| `docs/experiment_lists/summarization_without_rag.xlsx` | Experiment list and configuration tracking for non-RAG experiments |
 
 
 ---
