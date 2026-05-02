@@ -2,230 +2,324 @@
 An experimental pipeline for evaluating prompt-based summarization of job descriptions and role categorization, with and without RAG.
 The project compares different prompting strategies and model configurations without training any machine learning models.
 
-Table of Contents
-Overview
-Research Motivation
-Dataset
-Reference Summary Generation
-Pipeline Architecture
-Summarization Experiments
-Evaluation Framework
-Project Structure
-Usage
-Notes
-Overview
+There are two tasks as part of this research.
 
-This project implements a structured experimentation pipeline to evaluate how effectively Large Language Models (LLMs) can:
+## TASKS
+- Task A: Summarization
+- Task B: Role Categorization
 
-Summarise job descriptions into structured outputs
-Preserve key skills and responsibilities
-Reduce hallucinations
-Improve factual grounding using RAG
+# Summarization Task
+## Overview
 
-The system is fully prompt-based, meaning:
+This project evaluates how effectively Large Language Models (LLMs) can:
 
-No model training
-No fine-tuning
-Only prompt engineering + retrieval
+- Summarise job descriptions into structured outputs  
+- Preserve key skills and responsibilities  
+- Reduce hallucinations  
+- Improve factual grounding using RAG  
 
-All experiments were conducted on a subset of 100 job descriptions for consistent and controlled evaluation.
+All experiments are **prompt-based** (no training or fine-tuning).
 
-Research Motivation
+**Note:** Experiments were conducted on a subset of **100 job descriptions**.
+
+---
+
+## Research Motivation
 
 Job descriptions are:
 
-Unstructured
-Redundant
-Inconsistent
-Often noisy
-
-This makes automated processing difficult for:
-
-Recruitment systems
-Job search platforms
-Skill extraction pipelines
+- Unstructured  
+- Redundant  
+- Inconsistent  
 
 This project explores:
 
-Whether prompt-based summarization is sufficient
-Whether RAG improves factual accuracy
-Which prompting strategy performs best
-Dataset
+- Effectiveness of prompt-based summarization  
+- Impact of RAG on factual accuracy  
+- Comparison of different prompting strategies  
 
-The project uses a processed dataset derived from the Djinni Job Descriptions dataset.
+---
 
-Each record includes:
+## Dataset
 
-Job ID (id)
-Position
-Long Description
-Reference Summary
+The dataset is derived from the Djinni Job Descriptions dataset.
+https://huggingface.co/datasets/lang-uk/recruitment-dataset-job-descriptions-english 
 
-The dataset used for all experiments is already included in this repository:
+Each record in the dataset contains the following fields:
 
+- Position  
+- Long Description  
+- Company Name  
+- Exp Years  
+- Primary Keyword  
+- English Level  
+- Published  
+- Long Description_lang  
+- id  
+- __index_level_0__  
+
+For this research, the primary column used is:
+
+- Long Description → input for summarization  
+
+Additionally, a reference summary column is included:
+
+- Reference_Summary → used as ground truth for evaluation  
+
+Dataset used in experiments: 
 data/reference_summaries/djinni_with_reference_summaries.csv
 
-From this dataset, 100 samples were selected for all summarization experiments to ensure:
 
-Fair comparison across models and prompts
-Controlled evaluation conditions
-Faster experimentation and reproducibility
-Reference Summary Generation
+---
+
+### Dataset Schema
+
+Each record contains the following fields:
+
+| Column Name | Description |
+|------------|------------|
+| Position | Job title |
+| Long Description | Full job description text |
+| Company Name | Name of the company |
+| Exp Years | Required experience |
+| Primary Keyword | Key role-related keyword |
+| English Level | Required English proficiency |
+| Published | Job posting date |
+| Long Description_lang | Language of the job description |
+| id | Unique identifier |
+| __index_level_0__ | Index column |
+
+### Additional Column Created
+
+| Column Name | Description |
+|------------|------------|
+| Reference_Summary | Ground truth summary used for evaluation |
+
+
+### Reference Summary Generation
 
 Reference summaries were generated using Google Gemini.
 
-Configuration:
-
+**Configuration:**
 GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 GEMINI_TEMPERATURE = 0.0
 GEMINI_MAX_OUTPUT_TOKENS = 700
 
-Approach:
+**Approach:**
 
-Strict prompting
-Deterministic generation (temperature = 0.0)
-Structured output enforced
-No hallucinated information
+- Strict prompting  
+- Deterministic output (temperature = 0.0)  
+- Structured format enforced  
+- No hallucinated information  
 
-These summaries act as ground truth for evaluation.
-
-Pipeline Architecture
-
-The summarization pipeline follows these steps:
-
+---
+## Pipeline Architecture
 Job Description
-        │
-        ▼
+↓
 Text Cleaning
-        │
-        ▼
-Chunking (Fixed-size with overlap)
-        │
-        ▼
-Embedding (all-MiniLM-L6-v2)
-        │
-        ▼
-ChromaDB Vector Store
-        │
-        ▼
-Top-K Retrieval (RAG only)
-        │
-        ▼
+↓
+Chunking
+↓
+Embedding (MiniLM)
+↓
+ChromaDB
+↓
+Top-K Retrieval (RAG)
+↓
 Prompt Construction
-        │
-        ▼
+↓
 LLM Generation
-        │
-        ▼
-Evaluation Metrics
-Summarization Experiments
-
-The goal is to generate structured summaries with sections:
-
-Role Overview
-Responsibilities
-Skills
-Tools
-Experience
-Prompting Strategies
-
-The following prompt types are evaluated:
-
-Zero-shot prompting
-Few-shot prompting
-Chain-of-thought prompting
-Style-based prompting
-Self-consistency prompting
-Experiment Variants
-Non-RAG Summarization
-Direct job description → summary
-No retrieval
-Prompt-only approach
-RAG-based Summarization
-Job description is split into chunks
-Relevant chunks retrieved using embeddings
-Retrieved context used to guide summarization
-Self-Consistency Summarization
-Multiple candidate summaries generated (3–5 candidates per job description)
-Candidates scored based on:
-Consistency
-Completeness
-Grounding
-Faithfulness
-Best summary selected
-Evaluation Framework
-
-Each generated summary is evaluated against the reference summary using:
-
-Core Metrics
-ROUGE-L
-Semantic Similarity
-Compression Ratio
-Skill-Based Metrics
-IRR (Information Retrieval Recall)
-Top-K Skill Coverage
-Global Skill Overlap
-Hallucination Metrics
-Hallucination Rate
-Hallucination Prevalence
-Hallucination Density
-RAG-Specific Metrics
-Grounding Score
-Faithfulness Score
-Project Structure
-.
-├── outputs
-│   ├── final_comparision
-│   │   └── summarization
-│   │       ├── rag
-│   │       │   └── rag_summarization_final_metrics_all_experiments.csv
-│   │       └── non_rag
-│   │           └── non_rag_summarization_final_metrics_all_experiments.csv
-│   │
-│   └── experiments
-│       ├── summarization_with_RAG
-│       │   └── experiment folders
-│       └── summarization_without_RAG
-│           └── experiment folders
-│
-├── combining_outputs
-│   └── combining_outputs_of_experiments.ipynb
-│
-├── data
-│   └── reference_summaries
-│       └── djinni_with_reference_summaries.csv
-│
-├── experiments
-│   ├── summarization_with_rag
-│   │   └── notebooks
-│   └── summarization_without_rag
-│       └── notebooks
-│
-└── docs
-    └── experiment_lists
-        ├── summarization_without_rag.xlsx
-        └── summarization_with_rag.xlsx
-Usage
-
-All experiments are executed via Google Colab notebooks.
-
-Steps:
-
-Mount Google Drive
-Open experiment notebook
-Configure experiment settings
-Run pipeline
-
-Each notebook handles:
-
-Data preprocessing
-RAG setup
-Prompting
+↓
 Evaluation
-Output storage
-Notes
-Experiments are performed on 100 job descriptions
-No requirements.txt is included (executed in Google Colab)
-API keys are managed via Colab Secrets
-Each experiment stores outputs separately for reproducibility
-The dataset already includes reference summaries and is ready to use
+
+
+---
+
+## Summarization Experiments
+
+Structured output format:
+
+- Role Overview  
+- Responsibilities  
+- Skills  
+- Tools  
+- Experience  
+
+### Prompt Types
+
+- Zero-shot  
+- Few-shot  
+- Chain-of-thought  
+- Style-based  
+- Self-consistency  
+
+---
+
+## Experiment Variants
+
+### Non-RAG
+
+- Direct JD → Summary  
+- Prompt-only  
+
+### RAG
+
+- JD → Chunking → Retrieval → Summary  
+
+### Self-Consistency
+
+- Generate 3–5 summaries  
+- Score candidates  
+- Select best output  
+
+---
+
+## Evaluation Metrics
+
+### Core Metrics
+
+- ROUGE-L  
+- Semantic Similarity  
+- Compression Ratio  
+
+### Skill Metrics
+
+- IRR (Skill Recall)  
+- Top-K Skill Coverage  
+- Global Skill Overlap  
+
+### Hallucination Metrics
+
+- Hallucination Rate  
+- Hallucination Prevalence  
+- Hallucination Density  
+
+### RAG Metrics
+
+- Grounding Score  
+- Faithfulness Score  
+
+---
+
+## Project Structure
+outputs/
+│
+├── final_comparision/
+│ └── summarization/
+│ ├── rag/
+│ │ └── rag_summarization_final_metrics_all_experiments.csv
+│ └── non_rag/
+│ | └── non_rag_summarization_final_metrics_all_experiments.csv
+│
+├── experiments/
+│ ├── summarization_with_RAG/
+│ │ └── experiment_folders/
+│ │
+│ └── summarization_without_RAG/
+│ | └── experiment_folders/
+│
+combining_outputs/
+│ └── combining_outputs_of_experiments.ipynb
+│
+data/
+│ └── reference_summaries/
+│ | └── djinni_with_reference_summaries.csv
+│
+experiments/
+│ ├── summarization_with_rag/
+│ │ └── experiment_notebooks
+│ │
+│ └── summarization_without_rag/
+│ | └── experiment_notebooks
+│
+docs/
+│ └── experiment_lists/
+│ | ├── summarization_without_rag.xlsx
+│ | └── summarization_with_rag.xlsx
+
+
+---
+
+## Experiment Execution
+List of experiments and its configurations are mentioned in docs/experiment_lists. The experiment ids are present in corresponding excel sheets
+
+Each experiment is implemented as a separate notebook in experiments/
+Example: experiments/summarization_with_RAG/Task_*_experiment_id_*.ipynb
+
+Each notebook performs:
+
+- Data loading  
+- Preprocessing  
+- Prompt execution  
+- Metric computation  
+- Result storage
+
+Outputs are saved per experiment:
+
+- JSON results  
+- CSV results  
+- Final aggregated metrics  
+
+---
+
+## Output Files
+
+For each experiment:
+
+- `<experiment_id>_*.json` → Detailed results  
+- `<experiment_id>_*.csv` → Tabular results  
+- `<experiment_id>_*_final_metrics.csv` → Aggregated metrics
+- `<experiment_id>_*_final_json.csv` → Detailed result
+
+Final comparison files:
+
+- Combined metrics across experiments  
+
+---
+
+## Analysis Approach
+
+Instead of ranking experiments blindly, the analysis focuses on:
+
+- Trade-offs between hallucination and compression  
+- Skill preservation vs readability  
+- Effect of RAG on grounding and faithfulness  
+- Prompt effectiveness across models  
+
+---
+
+## Environment
+
+All experiments were executed in **Google Colab**.
+
+- No local setup required  
+- API keys managed via Colab Secrets  
+- Outputs stored in Google Drive  
+
+---
+
+## Notes
+
+- Dataset is not included due to size constraints  
+- Only processed reference dataset is used  
+- Experiments are reproducible using provided notebooks  
+
+---
+
+## Future Work
+
+- Role categorization experiments (with and without RAG)  
+- Improved skill extraction using NER models  
+- Hybrid retrieval (BM25 + embeddings)  
+- Prompt optimization using automated tuning  
+
+---
+
+## Author
+
+Supriya Uppala
+Focus: Generative AI + RAG for Recruitment Intelligence
+
+
+
+        
