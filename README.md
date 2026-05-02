@@ -114,23 +114,33 @@ GEMINI_MAX_OUTPUT_TOKENS = 700
 
 ---
 ## Pipeline Architecture
-Job Description
++------------------+
+| Load Dataset |
++------------------+
 ↓
-Text Cleaning
++------------------+
+| Clean Text |
++------------------+
 ↓
-Chunking
++------------------+
+| Chunking |
++------------------+
 ↓
-Embedding (MiniLM)
++------------------+
+| Embeddings |
++------------------+
 ↓
-ChromaDB
++------------------+
+| Retrieval |
++------------------+
 ↓
-Top-K Retrieval (RAG)
++------------------+
+| Prompt + LLM |
++------------------+
 ↓
-Prompt Construction
-↓
-LLM Generation
-↓
-Evaluation
++------------------+
+| Evaluation |
++------------------+
 
 
 ---
