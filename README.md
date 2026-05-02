@@ -281,13 +281,6 @@ All experiments were executed in **Google Colab**.
 
 ---
 
-## Future Work
-
-- Role categorization experiments (with and without RAG)  
-- Improved skill extraction using NER models  
-- Hybrid retrieval (BM25 + embeddings)  
-- Prompt optimization using automated tuning  
-
 ---
 
 ## Author
