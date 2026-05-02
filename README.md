@@ -219,7 +219,7 @@ Structured output format:
 List of experiments and its configurations are mentioned in docs/experiment_lists. The experiment ids are present in corresponding excel sheets
 
 Each experiment is implemented as a separate notebook in experiments/
-Example: experiments/summarization_with_RAG/Task_*_experiment_id_*.ipynb
+Example: experiments/summarization_with_RAG/Task_A_EXP_S_01_zero_shot_without_RAG_llama-3-8b-instant.ipynb
 
 Each notebook performs:
 
