@@ -1,0 +1,16 @@
+experiment_id,prompt_type,model_name,temperature,max_tokens,notebook_path,output_path
+exp_01,zero_shot,llama-3.1-8b-instant,0,700,experiments/summarization/without_rag/exp_01_zero_shot_nonrag_llama-3-8b-instant.ipynb,outputs/experiments/summarization/without_rag/exp_01
+exp_02,zero_shot,llama-3.3-70b-versatile,0,700,experiments/summarization/without_rag/exp_02_zero_shot_nonrag_llama-3.3-70b-versatile.ipynb,outputs/experiments/summarization/without_rag/exp_02
+exp_03,zero_shot,openai/gpt-oss-120b,0,700,experiments/summarization/without_rag/exp_03_zero_shot_nonrag_openai_gpt-oss-120b.ipynb,outputs/experiments/summarization/without_rag/exp_03
+exp_04,few_shot,llama-3.1-8b-instant,0,700,experiments/summarization/without_rag/exp_04_few_shot_nonrag_llama-3-8b-instant.ipynb,outputs/experiments/summarization/without_rag/exp_04
+exp_05,few_shot,llama-3.3-70b-versatile,0,700,experiments/summarization/without_rag/exp_05_few_shot_nonrag_llama-3.3-70b-versatile.ipynb,outputs/experiments/summarization/without_rag/exp_05
+exp_06,few_shot,openai/gpt-oss-120b,0,700,experiments/summarization/without_rag/exp_06_few_shot_nonrag_openai_gpt-oss-120b.ipynb,outputs/experiments/summarization/without_rag/exp_06
+exp_07,chain_of_thought,llama-3.1-8b-instant,0,700,experiments/summarization/without_rag/exp_07_chain_of_thought_nonrag_llama-3-8b-instant.ipynb,outputs/experiments/summarization/without_rag/exp_07
+exp_08,chain_of_thought,llama-3.3-70b-versatile,0,700,experiments/summarization/without_rag/exp_08_chain_of_thought_nonrag_llama-3.3-70b-versatile.ipynb,outputs/experiments/summarization/without_rag/exp_08
+exp_09,chain_of_thought,openai/gpt-oss-120b,0,700,experiments/summarization/without_rag/exp_09_chain_of_thought_nonrag_openai_gpt-oss-120b.ipynb,outputs/experiments/summarization/without_rag/exp_09
+exp_10,style_based,llama-3.1-8b-instant,0,700,experiments/summarization/without_rag/exp_10_style_based_nonrag_llama-3-8b-instant.ipynb,outputs/experiments/summarization/without_rag/exp_10
+exp_11,style_based,llama-3.3-70b-versatile,0,700,experiments/summarization/without_rag/exp_11_style_based_nonrag_llama-3.3-70b-versatile.ipynb,outputs/experiments/summarization/without_rag/exp_11
+exp_12,style_based,openai/gpt-oss-120b,0,700,experiments/summarization/without_rag/exp_12_style_based_nonrag_openai_gpt-oss-120b.ipynb,outputs/experiments/summarization/without_rag/exp_12
+exp_13,self_consistency,llama-3.1-8b-instant,0,700,experiments/summarization/without_rag/exp_13_self-consistency_nonrag_llama-3-8b-instant.ipynb,outputs/experiments/summarization/without_rag/exp_13
+exp_14,self_consistency,llama-3.3-70b-versatile,0,700,experiments/summarization/without_rag/exp_14_self_consistency_nonrag_llama-3.3-70b-versatile.ipynb,outputs/experiments/summarization/without_rag/exp_14
+exp_15,self_consistency,openai/gpt-oss-120b,0,700,experiments/summarization/without_rag/exp_15_self_consistency_nonrag_openai_gpt-oss-120b.ipynb,outputs/experiments/summarization/without_rag/exp_15
