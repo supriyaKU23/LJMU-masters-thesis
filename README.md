@@ -366,7 +366,15 @@ outputs/
 └── experiments/
     ├── summarization/
     │   ├── with_rag/
+    |   |   ├── results.csv
+    |   |   ├── results.json
+    |   |   ├── final_metrics.csv
+    |   |   ├── final_metrics.json
     │   └── without_rag/
+    |   |   ├── results.csv
+    |   |   ├── results.json
+    |   |   ├── final_metrics.csv
+    |   |   ├── final_metrics.json
     │
     └── role_categorization/
         ├── with_rag/
