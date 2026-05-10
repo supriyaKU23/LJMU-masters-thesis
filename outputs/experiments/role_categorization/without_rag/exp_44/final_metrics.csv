@@ -1,0 +1,2 @@
+experiment_id,task_name,prompt_type,model_name,temperature,max_tokens,rag_used,input_type,num_self_consistency_runs,num_samples_completed,num_correct,num_incorrect,valid_label_rate,accuracy,precision_macro,recall_macro,f1_macro,precision_weighted,recall_weighted,f1_weighted,num_taxonomy_labels
+exp_44_rc_self_consistency_nonrag_llama-3.3-70b-versatile,role_categorization,self_consistency_without_rag,llama-3.3-70b-versatile,0.3,700,False,job_description_only,5,100,66,34,1.0,0.66,0.642,0.7674,0.6746,0.6131,0.66,0.6188,13

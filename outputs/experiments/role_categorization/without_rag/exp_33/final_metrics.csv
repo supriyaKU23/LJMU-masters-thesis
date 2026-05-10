@@ -1,0 +1,2 @@
+experiment_id,task_name,prompt_type,model_name,temperature,max_tokens,rag_used,input_type,num_samples_completed,num_correct,num_incorrect,valid_label_rate,accuracy,precision_macro,recall_macro,f1_macro,precision_weighted,recall_weighted,f1_weighted,num_taxonomy_labels
+exp_33_rc_zero_shot_nonrag_openai_gpt-oss-120b,role_categorization,zero_shot_without_rag,openai/gpt-oss-120b,0.0,700,False,job_description_only,100,70,30,1.0,0.7,0.7418,0.772,0.7331,0.7267,0.7,0.698,13

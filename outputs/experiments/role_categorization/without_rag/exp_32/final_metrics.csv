@@ -1,0 +1,2 @@
+experiment_id,task_name,prompt_type,model_name,temperature,max_tokens,rag_used,input_type,num_samples_completed,num_correct,num_incorrect,valid_label_rate,accuracy,precision_macro,recall_macro,f1_macro,precision_weighted,recall_weighted,f1_weighted,num_taxonomy_labels
+exp_32_rc_zero_shot_nonrag_llama-3.3-70b-versatile,role_categorization,zero_shot_without_rag,llama-3.3-70b-versatile,0.0,700,False,job_description_only,100,66,34,1.0,0.66,0.6804,0.7693,0.6875,0.6739,0.66,0.6373,13

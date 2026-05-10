@@ -1,0 +1,101 @@
+experiment_id,selected_id,num_retrieved_chunks,retrieved_chunk_indices,retrieved_similarities,num_chunks_created,top_similarity
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,67aefec1-1efc-5c5b-b2db-c0ef5b74f519,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,2ec599d6-1509-5c34-9aec-54ac2e04b2d5,2,"[0, 1]","[0.8755, 0.7959]",2,0.8755
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,edba8bfd-8a91-5b37-9f72-bde92397e804,5,"[0, 1, 2, 3, 4]","[0.9408, 0.8666, 0.6431, 0.5365, 0.4605]",5,0.9408
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,077025bf-2c32-5855-9211-68b09228a635,2,"[0, 1]","[0.8869, 0.7888]",2,0.8869
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,adb62bd6-998e-58ec-a32c-3b99fe814b04,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,b2315b02-ac50-551c-93b5-a88d6ee230e6,2,"[0, 1]","[0.9835, 0.4108]",2,0.9835
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,881421a8-07a9-59a0-9765-6c48609ae879,2,"[0, 1]","[0.9709, 0.7543]",2,0.9709
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,b5fc4457-65a2-51c9-92fe-b9be2fc4888c,3,"[0, 1, 2]","[0.906, 0.6458, 0.2475]",3,0.906
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,bcbb5ce1-9ab8-5297-9472-791398c09e55,2,"[0, 1]","[0.974, 0.5913]",2,0.974
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,16fcc7e5-ba83-5125-92eb-3e9cc3185261,4,"[0, 1, 2, 3]","[0.9134, 0.794, 0.5552, 0.5217]",4,0.9134
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,3b5c5d8b-1ce1-5268-84e4-87981716111b,4,"[0, 1, 2, 3]","[0.9091, 0.7354, 0.4609, 0.3868]",4,0.9091
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,ef401f92-f924-5ab2-bee2-f60e5f2c9dc5,3,"[0, 1, 2]","[0.931, 0.7576, 0.554]",3,0.931
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,9f81ca91-9f9e-5295-91aa-e05a1d228556,2,"[0, 1]","[0.97, 0.704]",2,0.97
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,345fde08-2c9b-51b6-aaef-e0d10cbe15b0,2,"[0, 1]","[0.9836, 0.4611]",2,0.9836
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,ab7a057a-1e11-560b-985d-07846b660dda,3,"[0, 1, 2]","[0.9014, 0.7893, 0.3616]",3,0.9014
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,1033d838-1753-5d48-8a93-3981e34666f6,2,"[0, 1]","[0.958, 0.7324]",2,0.958
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,b0cb9821-ad43-5999-9a17-dd95ec8e781a,3,"[0, 1, 2]","[0.9606, 0.7203, 0.5472]",3,0.9606
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,03d5d9fe-f19b-5baa-9f80-29d3bf3cd9c7,4,"[0, 1, 2, 3]","[0.9604, 0.7702, 0.4929, 0.3518]",4,0.9604
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,beacc1c0-f237-5182-b394-6c968254be79,3,"[0, 1, 2]","[0.9752, 0.7339, 0.5732]",3,0.9752
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,4ebda3a8-6249-5bc8-8118-6e21be66a1de,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,9b343996-ce39-56ad-bed1-ccb5a41814fc,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,66a7dbc2-c188-5afa-a2fa-f729ef2292b2,3,"[0, 1, 2]","[0.8564, 0.7815, 0.3224]",3,0.8564
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,931b1048-ac7a-5a77-adeb-2006d1a44a93,2,"[0, 1]","[0.9708, 0.5917]",2,0.9708
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,f00ecb27-73a8-5456-b5cd-10f2ba7cae12,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,cc8a84c0-8df5-5e44-9793-50991b3e46e2,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,42331ff5-ce34-5c2c-9d94-97fd9fff1515,2,"[0, 1]","[0.8789, 0.8664]",2,0.8789
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,8c51792f-fb89-5d0a-9515-283bf72e3246,3,"[0, 1, 2]","[0.9076, 0.6875, 0.4709]",3,0.9076
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,0271807c-0658-5b23-9dd8-e5bf54e72686,2,"[0, 1]","[0.9202, 0.6958]",2,0.9202
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,04b80a32-a6fc-5207-9322-59cda1d45a6f,4,"[0, 1, 2, 3]","[0.8923, 0.6936, 0.525, 0.0494]",4,0.8923
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,89e75f7e-a2cb-5cb5-a3ed-01b61882b538,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,faa0d662-bb50-5bed-b5e4-eda682b0fa93,3,"[0, 1, 2]","[0.9645, 0.7606, 0.6222]",3,0.9645
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,859a9003-f724-5739-9267-1a0ce13b9770,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,28026ee0-ae44-5a81-b89a-b10a92b18de2,5,"[0, 1, 2, 3, 4]","[0.9584, 0.8186, 0.6829, 0.6134, 0.6094]",6,0.9584
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,251cc796-4bfd-5b0b-aa60-188e059d99ca,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,fcb2ccfd-c106-5044-80af-281f9144b459,3,"[0, 1, 2]","[0.8983, 0.651, 0.1905]",3,0.8983
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,2f9ca683-d99c-5ee1-9d3f-c5f2d36b12f7,4,"[0, 1, 2, 3]","[0.9665, 0.7926, 0.6799, 0.4867]",4,0.9665
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,86d83e60-44a9-529f-a8f6-3f308989b533,2,"[0, 1]","[0.9139, 0.5953]",2,0.9139
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,5c276aed-16cf-558a-9363-37ebe181c462,5,"[0, 1, 4, 3, 2]","[0.9404, 0.76, 0.6694, 0.6357, 0.6196]",6,0.9404
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,6d52ffe8-e7ac-5548-9aae-5b905a224208,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,6abb5c07-f383-50e5-9a7c-d66ba6af608a,3,"[0, 1, 2]","[0.9411, 0.7251, 0.4035]",3,0.9411
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,ebf21b56-6c5c-5df5-bfeb-e44b454c8173,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,32bf53d9-5840-5c4d-b1e3-f96e5790adda,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,973d5e7d-cfa8-574a-b139-d71c4d1542f0,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,54dd1e7e-0d56-5f7e-a226-87d0d5b0e5f5,4,"[0, 1, 2, 3]","[0.9465, 0.6916, 0.5705, 0.5111]",4,0.9465
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,14449bcb-7e57-5801-9942-5d1a5ab160d4,3,"[0, 1, 2]","[0.9003, 0.7084, 0.5341]",3,0.9003
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,8203a276-c40e-5d47-ac8b-950fd72eba9a,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,e62cd3be-14f4-59d7-ad22-f11779d840c3,2,"[0, 1]","[0.9523, 0.7889]",2,0.9523
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,9fdce2e7-0cdd-50aa-a96b-4925724eebc3,5,"[0, 1, 2, 3, 4]","[0.9622, 0.8085, 0.5349, 0.3296, 0.1643]",5,0.9622
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,03482579-ef9a-51f9-927b-c1d62cbbc269,2,"[0, 1]","[0.9812, 0.5281]",2,0.9812
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,76d9b04d-4364-50c9-a5cd-4d7d2936e436,4,"[0, 1, 2, 3]","[0.9265, 0.8463, 0.577, 0.2176]",4,0.9265
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,14f20381-ef38-53fd-8869-8ca7a1bc0f02,2,"[0, 1]","[0.9943, 0.6589]",2,0.9943
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,0dc4dd91-4b95-5cdb-b269-c390fcd70012,2,"[0, 1]","[0.9118, 0.811]",2,0.9118
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,546f2cc6-ce2d-55c4-9ee0-b4e792dabd25,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,fa99b65c-6e5f-5874-8ecb-8cc661090440,2,"[0, 1]","[0.9091, 0.7839]",2,0.9091
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,fa940248-ac7c-5d92-a316-0951833269be,2,"[0, 1]","[0.9837, 0.674]",2,0.9837
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,c9b2547a-5d87-5b26-9476-80116ff88eaa,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,e123908b-3127-59d3-a4fc-1f2d212066f1,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,8e0657fb-53d7-5574-8c07-02c4acf2275a,5,"[0, 1, 3, 4, 2]","[0.9379, 0.7498, 0.421, 0.4007, 0.3156]",5,0.9379
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,a9a89f86-1cd6-5796-a12c-f27f5586768c,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,12ba88b7-36cf-5da1-aad1-3ec85ed7c5d7,3,"[0, 1, 2]","[0.914, 0.8107, 0.4208]",3,0.914
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,c25d70fa-3ed2-5172-bc1a-deb96b7e4665,2,"[0, 1]","[0.9785, 0.803]",2,0.9785
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,0c988373-a8d8-50fb-8a77-927249f479d1,3,"[0, 1, 2]","[0.9729, 0.7786, 0.3846]",3,0.9729
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,2f6021f0-6205-58d5-8dbb-5b30321d35e1,3,"[0, 1, 2]","[0.8781, 0.7628, 0.4867]",3,0.8781
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,16a41c94-a45f-5a0f-8d61-749e0d5960bb,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,12832c95-9bb4-504e-8585-57777a1b0f5e,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,1e80dbc7-72e2-5ee9-81b7-38ead4f5e0ef,3,"[0, 1, 2]","[0.949, 0.6711, 0.0632]",3,0.949
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,46e03ffd-c215-57b4-a90d-01375f0a6d16,2,"[0, 1]","[0.9592, 0.7026]",2,0.9592
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,74145211-e88f-50b0-aa90-23b0efe6af62,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,4189a97b-fe35-57aa-852d-64a5b754685f,2,"[0, 1]","[0.9105, 0.7746]",2,0.9105
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,55751942-3b14-5160-9c3b-8bf2914d4150,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,1fce7199-b9f4-508d-b4ad-62250dbc38aa,3,"[0, 1, 2]","[0.9184, 0.6226, 0.3261]",3,0.9184
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,0d80b70e-6388-5097-b2ed-58558eba3a57,2,"[0, 1]","[0.9545, 0.8024]",2,0.9545
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,39e2ee1d-7bb1-52b2-bbc3-81f80dbd2886,3,"[0, 1, 2]","[0.9283, 0.7514, 0.2951]",3,0.9283
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,7b538c72-321d-5def-bde8-88422e6270e6,2,"[0, 1]","[0.9606, 0.7496]",2,0.9606
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,94026418-6f5c-5499-998b-29afbcdcd912,3,"[0, 1, 2]","[0.9485, 0.7583, 0.6011]",3,0.9485
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,a7a876fc-383d-5ddb-a510-77125ff8cf95,3,"[0, 1, 2]","[0.9692, 0.6445, 0.0754]",3,0.9692
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,fb95c4ee-f1f7-588d-bacf-6ec14c920b0e,4,"[0, 1, 2, 3]","[0.8975, 0.7092, 0.46, 0.3524]",4,0.8975
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,464e841d-3f55-588f-8356-586801c00850,2,"[0, 1]","[0.8444, 0.7869]",2,0.8444
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,3ea7cd01-69ac-580c-a808-9457ef1b296a,3,"[0, 1, 2]","[0.9315, 0.7977, 0.6004]",3,0.9315
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,d82e8142-5e21-5af4-8a41-cce0ff5b59c7,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,b413238d-1c36-5dfc-8e25-7d37fd26bc56,2,"[0, 1]","[0.9775, 0.6961]",2,0.9775
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,2c65603e-9e19-5561-b95e-2921dbfbe358,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,dd46fd74-061d-5640-a21e-a8c555434f12,3,"[0, 1, 2]","[0.9361, 0.5937, 0.1751]",3,0.9361
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,8b0a00b0-5fde-5ab7-a29f-0cd9898e5bb8,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,46a14f36-622e-530f-91c4-ac1c88745f19,2,"[0, 1]","[0.9804, 0.5094]",2,0.9804
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,1e0b7068-e117-5c7f-b098-3cd1a179c361,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,30a04a29-f476-590c-a034-c7981d25c09e,2,"[0, 1]","[0.8648, 0.6891]",2,0.8648
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,6dfd37d6-8de4-5b21-8e27-b7d041928281,3,"[0, 1, 2]","[0.9393, 0.6771, 0.3679]",3,0.9393
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,f4a6d2c7-56cc-548d-8aab-e64303e680d4,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,5f365830-a694-56a1-b9f5-e1149e7ac66b,2,"[0, 1]","[0.9788, 0.7364]",2,0.9788
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,23e1760f-74a9-5621-917f-f1f2e02775a8,2,"[0, 1]","[0.828, 0.721]",2,0.828
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,a94c0270-c53b-55eb-aff5-4f5d07a22dda,2,"[0, 1]","[0.9588, 0.8186]",2,0.9588
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,dcc452a7-9e19-581a-93dc-efba899f5c35,2,"[0, 1]","[0.9017, 0.6756]",2,0.9017
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,38e5127c-2f38-538d-9534-4fcfd9941167,1,[0],[1.0],1,1.0
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,b5f3672b-3347-5128-b933-ccfc2a337390,2,"[0, 1]","[0.9981, 0.4337]",2,0.9981
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,bf207a7a-029b-58db-aad5-6211d632af5d,2,"[0, 1]","[0.9541, 0.6874]",2,0.9541
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,8f856535-1fde-5138-a1bc-13df99cc0460,4,"[0, 1, 2, 3]","[0.9498, 0.6939, 0.5897, 0.4683]",4,0.9498
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,f1bf1731-d1ce-5904-911c-8729eb56ca96,3,"[0, 1, 2]","[0.91, 0.7902, 0.6589]",3,0.91
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,4f3ac694-0730-5739-afbb-7d09d2f5e97b,2,"[0, 1]","[0.9875, 0.7696]",2,0.9875
+exp_51_rc_few_shot_rag_openai_gpt-oss-120b,01947a3a-b41d-5b59-a842-73beeb913ac7,1,[0],[1.0],1,1.0

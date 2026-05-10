@@ -1,0 +1,22 @@
+{
+    "experiment_id": "exp_41_rc_style_based_nonrag_llama-3.3-70b-versatile",
+    "task_name": "role_categorization",
+    "prompt_type": "style_based_without_rag",
+    "model_name": "llama-3.3-70b-versatile",
+    "temperature": 0.0,
+    "max_tokens": 700,
+    "rag_used": false,
+    "input_type": "job_description_only",
+    "num_samples_completed": 100,
+    "num_correct": 68,
+    "num_incorrect": 32,
+    "valid_label_rate": 1.0,
+    "accuracy": 0.68,
+    "precision_macro": 0.683,
+    "recall_macro": 0.7699,
+    "f1_macro": 0.6991,
+    "precision_weighted": 0.6321,
+    "recall_weighted": 0.68,
+    "f1_weighted": 0.6376,
+    "num_taxonomy_labels": 13
+}

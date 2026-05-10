@@ -1,0 +1,14 @@
+,Backend Developer,Frontend Developer,Full Stack Developer,DevOps Engineer,Data / AI Role,QA Engineer,Mobile Developer,Project / Program Manager,Product Manager,Marketing / Sales,Business / Operations Role,Design / Creative Role,Other
+Backend Developer,16,0,1,0,0,1,0,0,0,0,0,0,1
+Frontend Developer,1,7,0,0,0,0,0,0,0,0,0,0,0
+Full Stack Developer,1,0,5,0,0,0,0,0,0,0,0,0,0
+DevOps Engineer,1,0,0,7,0,0,0,0,0,0,0,0,0
+Data / AI Role,0,0,0,0,3,0,0,0,0,0,0,0,0
+QA Engineer,0,0,0,0,0,7,0,0,0,0,0,0,0
+Mobile Developer,0,0,0,0,0,0,3,0,1,0,0,0,0
+Project / Program Manager,0,0,0,0,0,0,0,3,0,0,0,0,0
+Product Manager,0,0,0,0,0,0,0,0,1,0,0,0,0
+Marketing / Sales,1,0,1,0,0,0,0,0,0,7,0,1,0
+Business / Operations Role,0,0,0,0,0,0,0,0,0,0,8,0,1
+Design / Creative Role,0,0,0,0,0,0,0,0,0,2,0,6,1
+Other,3,0,0,1,0,3,0,1,0,1,1,0,3

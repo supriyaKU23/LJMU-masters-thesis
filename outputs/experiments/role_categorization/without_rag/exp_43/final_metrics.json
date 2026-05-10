@@ -1,0 +1,23 @@
+{
+    "experiment_id": "exp_43_rc_self_consistency_nonrag_llama_3_1_8b_instant",
+    "task_name": "role_categorization",
+    "prompt_type": "self_consistency_without_rag",
+    "model_name": "llama-3.1-8b-instant",
+    "temperature": 0.3,
+    "max_tokens": 700,
+    "rag_used": false,
+    "input_type": "job_description_only",
+    "num_self_consistency_runs": 5,
+    "num_samples_completed": 100,
+    "num_correct": 58,
+    "num_incorrect": 42,
+    "valid_label_rate": 0.95,
+    "accuracy": 0.58,
+    "precision_macro": 0.5717,
+    "recall_macro": 0.6975,
+    "f1_macro": 0.5898,
+    "precision_weighted": 0.568,
+    "recall_weighted": 0.58,
+    "f1_weighted": 0.557,
+    "num_taxonomy_labels": 13
+}
