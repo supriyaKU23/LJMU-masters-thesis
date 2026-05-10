@@ -1,293 +1,454 @@
-﻿# Prompt-Based Job Description Summarization and Role Categorization using RAG
-An experimental pipeline for evaluating prompt-based summarization of job descriptions and role categorization, with and without RAG.
-The project compares different prompting strategies and model configurations without training any machine learning models.
+# Prompt-Based Job Description Summarization and Role Categorization using RAG
 
-There are two tasks as part of this research.
+This project implements an experimental pipeline for evaluating prompt-based **Job Description Summarization** and **Role Categorization**, with and without Retrieval-Augmented Generation (RAG).
 
-## TASKS
-- Task A: Summarization
-- Task B: Role Categorization
+The project compares multiple prompting strategies and model configurations without training or fine-tuning any machine learning model.
 
-# Summarization Task
+---
+
+## Project Tasks
+
+This research contains two main tasks:
+
+| Task | Description |
+|----|----|
+| Task A | Job Description Summarization |
+| Task B | Role Categorization |
+
+---
+
+# Task A: Job Description Summarization
+
 ## Overview
 
-This project evaluates how effectively Large Language Models (LLMs) can:
+The summarization task evaluates how effectively Large Language Models (LLMs) can generate structured summaries from job descriptions.
 
-- Summarise job descriptions into structured outputs  
-- Preserve key skills and responsibilities  
-- Reduce hallucinations  
-- Improve factual grounding using RAG  
+The generated summaries focus on:
 
-All experiments are **prompt-based** (no training or fine-tuning).
+- Role overview
+- Responsibilities
+- Skills
+- Tools and technologies
+- Experience requirements
 
-**Note:** Experiments were conducted on a subset of **100 job descriptions**.
+All experiments are prompt-based and do not involve model training or fine-tuning.
+
+Experiments were conducted on a subset of 100 job descriptions.
 
 ---
 
 ## Research Motivation
 
-Job descriptions are:
+Job descriptions are often:
 
-- Unstructured  
-- Redundant  
-- Inconsistent  
+- Long
+- Unstructured
+- Redundant
+- Inconsistent in format
+- Difficult to compare manually
 
-This project explores:
+This task explores whether prompt-based LLM summarization can produce concise, structured, and factual summaries from raw job descriptions.
 
-- Effectiveness of prompt-based summarization  
-- Impact of RAG on factual accuracy  
-- Comparison of different prompting strategies  
+The research also evaluates whether RAG improves factual grounding and reduces hallucination.
 
 ---
 
 ## Dataset
 
-The dataset is derived from the Djinni Job Descriptions dataset.
-https://huggingface.co/datasets/lang-uk/recruitment-dataset-job-descriptions-english 
+The dataset is derived from the Djinni Job Descriptions dataset:
 
-Each record in the dataset contains the following fields:
+https://huggingface.co/datasets/lang-uk/recruitment-dataset-job-descriptions-english
 
-- Position  
-- Long Description  
-- Company Name  
-- Exp Years  
-- Primary Keyword  
-- English Level  
-- Published  
-- Long Description_lang  
-- id  
-- __index_level_0__  
+The processed dataset used for summarization is:
 
-For this research, the primary column used is:
-
-- Long Description → input for summarization  
-
-Additionally, a reference summary column is included:
-
-- Reference_Summary → used as ground truth for evaluation  
-
-Dataset used in experiments: 
+```text
 data/reference_summaries/djinni_with_reference_summaries.csv
-
+```
 
 ---
 
-### Dataset Schema
-
-Each record contains the following fields:
+## Dataset Schema
 
 | Column Name | Description |
-|------------|------------|
-| Position | Job title |
+|---|---|
+| Position | Original job title |
 | Long Description | Full job description text |
-| Company Name | Name of the company |
+| Company Name | Company name |
 | Exp Years | Required experience |
-| Primary Keyword | Key role-related keyword |
+| Primary Keyword | Role-related keyword |
 | English Level | Required English proficiency |
 | Published | Job posting date |
 | Long Description_lang | Language of the job description |
-| id | Unique identifier |
-| __index_level_0__ | Index column |
+| id | Unique record identifier |
+| index_level_0 | Dataset index column |
+| Reference_Summary | Ground-truth reference summary |
 
-### Additional Column Created
+---
 
-| Column Name | Description |
-|------------|------------|
-| Reference_Summary | Ground truth summary used for evaluation |
-
-
-### Reference Summary Generation
+## Reference Summary Generation
 
 Reference summaries were generated using Google Gemini.
 
-**Configuration:**
+### Configuration
+
+```python
 GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 GEMINI_TEMPERATURE = 0.0
 GEMINI_MAX_OUTPUT_TOKENS = 700
+```
 
-**Approach:**
+### Approach
 
-- Strict prompting  
-- Deterministic output (temperature = 0.0)  
-- Structured format enforced  
-- No hallucinated information  
+- Strict prompting
+- Deterministic generation
+- Structured summary format
+- No external information
+- No hallucinated content
+- Output aligned with predefined summary sections
 
 ---
-## Pipeline Architecture
+
+## Summarization Output Format
+
+Each generated summary follows this structure:
+
+```text
+Role Overview:
+...
+
+Responsibilities:
+...
+
+Skills:
+...
+
+Tools:
+...
+
+Experience:
+...
+```
+
+---
+
+## Summarization Experiment Types
+
+Two major experiment categories are implemented.
+
+### 1. Non-RAG Summarization
+
+In non-RAG experiments, the full job description is directly passed to the LLM.
+
+```text
+Job Description → Prompt → LLM → Summary
+```
+
+### 2. RAG-Based Summarization
+
+In RAG experiments, the job description is chunked, embedded, retrieved, and then passed to the LLM as grounded context.
+
+```text
+Job Description → Chunking → Embedding → ChromaDB → Retrieval → Prompt → LLM → Summary
+```
+
+---
+
+## Prompting Strategies
+
+The following prompting strategies are evaluated:
+
+- Zero-shot prompting
+- Few-shot prompting
+- Chain-of-thought prompting
+- Style-based prompting
+- Self-consistency prompting
+
+---
+
+## Summarization Pipeline
 
 | Step | Stage | Description |
-|------|-------|-------------|
-| 1 | Load Dataset | Load the processed Djinni job description dataset with reference summaries |
-| 2 | Clean Text | Clean the `Long Description` column by removing noise and normalising whitespace |
-| 3 | Chunking | Split job descriptions into fixed-size chunks for RAG experiments |
-| 4 | Embedding | Generate embeddings using `sentence-transformers/all-MiniLM-L6-v2` |
-| 5 | Vector Storage | Store chunk embeddings in ChromaDB |
-| 6 | Retrieval | Retrieve Top-K relevant chunks using cosine similarity |
-| 7 | Prompt Construction | Build prompts using zero-shot, few-shot, style-based, chain-of-thought, or self-consistency strategies |
-| 8 | LLM Generation | Generate structured summaries using selected LLMs |
-| 9 | Evaluation | Compute ROUGE-L, semantic similarity, IRR, hallucination, compression, grounding, and faithfulness metrics |
-
-
----
-
-## Summarization Experiments
-
-Structured output format:
-
-- Role Overview  
-- Responsibilities  
-- Skills  
-- Tools  
-- Experience  
-
-### Prompt Types
-
-- Zero-shot  
-- Few-shot  
-- Chain-of-thought  
-- Style-based  
-- Self-consistency  
+|---|---|---|
+| 1 | Load Dataset | Load processed Djinni dataset with reference summaries |
+| 2 | Clean Text | Remove HTML, URLs, extra spaces, and noisy text |
+| 3 | Preprocess Data | Remove null, empty, and duplicate records |
+| 4 | Chunking | Split job descriptions into fixed-size chunks for RAG |
+| 5 | Embedding | Generate embeddings using SentenceTransformer |
+| 6 | Vector Storage | Store embeddings in ChromaDB |
+| 7 | Retrieval | Retrieve Top-K relevant chunks |
+| 8 | Prompt Construction | Build prompt based on experiment type |
+| 9 | LLM Generation | Generate structured summary |
+| 10 | Evaluation | Compare generated summary with reference summary |
+| 11 | Save Results | Store outputs as CSV and JSON |
 
 ---
 
-## Experiment Variants
-
-### Non-RAG
-
-- Direct JD → Summary  
-- Prompt-only  
-
-### RAG
-
-- JD → Chunking → Retrieval → Summary  
-
-### Self-Consistency
-
-- Generate 3–5 summaries  
-- Score candidates  
-- Select best output  
-
----
-
-## Evaluation Metrics
+## Summarization Evaluation Metrics
 
 ### Core Metrics
 
-- ROUGE-L  
-- Semantic Similarity  
-- Compression Ratio  
+| Metric | Purpose |
+|---|---|
+| ROUGE-L | Measures lexical overlap with reference summary |
+| Semantic Similarity | Measures meaning-level similarity |
+| Compression Ratio | Measures summary length compared to original JD |
 
-### Skill Metrics
+### Skill Preservation Metrics
 
-- IRR (Skill Recall)  
-- Top-K Skill Coverage  
-- Global Skill Overlap  
+| Metric | Purpose |
+|---|---|
+| IRR | Measures skill retention from original JD |
+| Top-K Skill Coverage | Measures coverage of important skills |
+| Global Skill Overlap | Measures overall skill preservation |
 
 ### Hallucination Metrics
 
-- Hallucination Rate  
-- Hallucination Prevalence  
-- Hallucination Density  
+| Metric | Purpose |
+|---|---|
+| Hallucination Rate | Measures unsupported skills in generated summary |
+| Hallucination Prevalence | Measures how many summaries contain hallucination |
+| Hallucination Density | Measures average hallucinated items when hallucination occurs |
 
-### RAG Metrics
+### RAG-Specific Metrics
 
-- Grounding Score  
-- Faithfulness Score  
+| Metric | Purpose |
+|---|---|
+| Grounding Score | Measures alignment with retrieved context |
+| Faithfulness Score | Measures alignment with original job description |
+| Retrieval Similarity | Measures quality of retrieved chunks |
 
 ---
 
-## Project Structure
-## Project Structure
+# Task B: Role Categorization
 
-| Folder / File | Description |
-|--------------|-------------|
-| `data/reference_summaries/djinni_with_reference_summaries.csv` | Processed dataset containing job descriptions and Gemini-generated reference summaries |
-| `outputs/experiments/summarization_with_RAG/` | Output folders for each RAG summarization experiment |
-| `outputs/experiments/summarization_without_RAG/` | Output folders for each non-RAG summarization experiment |
-| `outputs/final_comparision/summarization/rag/rag_summarization_final_metrics_all_experiments.csv` | Combined final metrics for all RAG summarization experiments |
-| `outputs/final_comparision/summarization/non_rag/non_rag_summarization_final_metrics_all_experiments.csv` | Combined final metrics for all non-RAG summarization experiments |
-| `combining_outputs/combining_outputs_of_experiments.ipynb` | Notebook used to combine individual experiment outputs |
-| `experiments/summarization_with_rag/` | Colab notebooks for RAG-based summarization experiments |
-| `experiments/summarization_without_rag/` | Colab notebooks for non-RAG summarization experiments |
-| `docs/experiment_lists/summarization_with_rag.xlsx` | Experiment list and configuration tracking for RAG experiments |
-| `docs/experiment_lists/summarization_without_rag.xlsx` | Experiment list and configuration tracking for non-RAG experiments |
+## Overview
 
+The role categorization task evaluates whether LLMs can classify job descriptions into predefined role categories using prompt-based classification.
+
+The goal is to assign each job description to exactly one standard role category.
+
+This task is also performed with and without RAG.
+
+---
+
+## Role Categorization Objective
+
+The objective is to classify each job description into a fixed role taxonomy using:
+
+- Job description text
+- Prompt instructions
+- Optional retrieved context for RAG experiments
+
+No model training or fine-tuning is performed.
+
+---
+
+## Role Taxonomy
+
+A fixed taxonomy is used for classification.
+
+The taxonomy file is stored at:
+
+```text
+data/role_taxonomy/role_taxonomy.csv
+```
+
+Example role categories include:
+
+- Backend Developer
+- Frontend Developer
+- Full Stack Developer
+- DevOps Engineer
+- Data / AI Role
+- QA Engineer
+- Mobile Developer
+- Software Engineer
+- Project / Program Manager
+- Product Manager
+- Marketing / Sales
+- Business / Operations Role
+- Design / Creative Role
+- Other
+
+---
+
+## Role Categorization Dataset
+
+The role categorization dataset is created by standardizing the original `Position` column into a new ground-truth label column.
+
+### Important Columns
+
+| Column Name | Description |
+|---|---|
+| Position | Original job title |
+| Long Description | Input job description |
+| Primary Keyword | Job keyword |
+| id | Unique identifier |
+| standard_role | Ground-truth role label |
+
+---
+
+## Role Label Standardization
+
+Before running role categorization experiments, the original `Position` values are mapped to a fixed taxonomy.
+
+This creates the ground-truth column:
+
+```text
+standard_role
+```
+
+The standardized dataset is then used for evaluating LLM predictions.
+
+---
+
+## Role Categorization Experiment Types
+
+### 1. Non-RAG Role Categorization
+
+```text
+Job Description → Prompt → LLM → Predicted Role
+```
+
+### 2. RAG-Based Role Categorization
+
+```text
+Job Description → Chunking → Embedding → ChromaDB → Retrieval → Prompt → LLM → Predicted Role
+```
+
+---
+
+## Role Categorization Prompting Strategies
+
+The following strategies are evaluated:
+
+- Zero-shot prompting
+- Few-shot prompting
+- Chain-of-thought prompting
+- Style-based
+- Self-consistency prompting
+---
+
+## Role Categorization Evaluation Metrics
+
+| Metric | Purpose |
+|---|---|
+| Accuracy | Overall correct classifications |
+| Precision Macro | Class-wise precision averaged equally |
+| Recall Macro | Class-wise recall averaged equally |
+| F1 Macro | Balanced class-wise F1 score |
+| Confusion Matrix | Shows misclassification patterns |
 
 ---
 
 ## Experiment Execution
-List of experiments and its configurations are mentioned in docs/experiment_lists. The experiment ids are present in corresponding excel sheets
 
-Each experiment is implemented as a separate notebook in experiments/
-Example: experiments/summarization_with_RAG/Task_A_EXP_S_01_zero_shot_without_RAG_llama-3-8b-instant.ipynb
+Each experiment is implemented as a separate Google Colab notebook.
+
+Experiment configurations are tracked in:
+
+```text
+docs/experiment_lists/
+```
 
 Each notebook performs:
 
-- Data loading  
-- Preprocessing  
-- Prompt execution  
-- Metric computation  
-- Result storage
-
-Outputs are saved per experiment:
-
-- JSON results  
-- CSV results  
-- Final aggregated metrics  
+1. Dataset loading
+2. Data preprocessing
+3. Prompt construction
+4. LLM execution
+5. Metric computation
+6. Checkpoint saving
+7. Final metric generation
 
 ---
 
 ## Output Files
 
-For each experiment:
+Each experiment produces:
 
-- `<experiment_id>_*.json` → Detailed results  
-- `<experiment_id>_*.csv` → Tabular results  
-- `<experiment_id>_*_final_metrics.csv` → Aggregated metrics
-- `<experiment_id>_*_final_json.csv` → Detailed result
+```text
+results.csv
+results.json
+final_metrics.csv
+final_metrics.json
+```
 
-Final comparison files:
+Final combined comparison files are saved under:
 
-- Combined metrics across experiments  
-
----
-
-## Analysis Approach
-
-Instead of ranking experiments blindly, the analysis focuses on:
-
-- Trade-offs between hallucination and compression  
-- Skill preservation vs readability  
-- Effect of RAG on grounding and faithfulness  
-- Prompt effectiveness across models  
+```text
+outputs/final_comparison/
+```
 
 ---
 
 ## Environment
 
-All experiments were executed in **Google Colab**.
+All experiments were executed in Google Colab.
 
-- No local setup required  
-- API keys managed via Colab Secrets  
-- Outputs stored in Google Drive  
+### Main Libraries Used
+
+- pandas
+- numpy
+- scikit-learn
+- rouge-score
+- sentence-transformers
+- chromadb
+- groq
+- tenacity
+- tqdm
+
+### API Key Management
+
+API keys are managed using Colab Secrets.
+
+Example:
+
+```python
+from google.colab import userdata
+
+GROQ_API_KEY = userdata.get("GROQ_API_KEY")
+```
 
 ---
 
-## Notes
+## Models Used
 
-- Dataset is not included due to size constraints  
-- Only processed reference dataset is used  
-- Experiments are reproducible using provided notebooks  
+The experiments use Groq-hosted LLMs such as:
+
+- llama-3.1-8b-instant
+- llama-3.3-70b-versatile
+- openai/gpt-oss-120b
+
+Reference summaries are generated using Gemini.
 
 ---
+
+## Reproducibility Notes
+
+- Experiments are notebook-based and can be run in Google Colab.
+- API keys must be configured in Colab Secrets.
+- Output folders are automatically created by the notebooks.
+- Checkpointing is implemented to resume interrupted experiments.
+- Dataset files may need to be manually placed in the expected `data/` folders.
+
+---
+
+## Research Scope
+
+This project focuses on prompt-based experimentation only.
+
+The following are not performed:
+
+- Model training
+- Fine-tuning
+- Supervised classification model development
+- Deep learning model optimization
 
 ---
 
 ## Author
 
-Supriya Uppala
-Focus: Generative AI + RAG for Recruitment Intelligence
+**Supriya Uppala**
 
-
-
-        
+Focus: Generative AI and RAG for Recruitment Intelligence
