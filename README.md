@@ -341,6 +341,47 @@ The following strategies are evaluated:
 
 ---
 
+## Output Organization Note
+
+Initially, summarization experiment outputs were stored directly under experiment-specific folders using the following structure:
+
+```text
+outputs/
+└── experiments/
+    └── <experiment_id>/
+        ├── <experiment_id>_results.csv
+        ├── <experiment_id>_results.json
+        ├── <experiment_id>_final_metrics.csv
+        └── <experiment_id>_final_metrics.json
+```
+
+At a later stage of the research, the outputs were reorganized into task-wise and RAG-wise folders for improved maintainability and easier benchmarking across experiments.
+
+The experiment notebooks themselves were not modified during this reorganization process.
+
+As a result, some earlier experiments may still follow the original output directory structure, while newer experiments follow the reorganized structure shown below:
+
+```text
+outputs/
+└── experiments/
+    ├── summarization/
+    │   ├── with_rag/
+    │   └── without_rag/
+    │
+    └── role_categorization/
+        ├── with_rag/
+        └── without_rag/
+```
+
+This restructuring was performed only for organizational purposes and does not affect:
+
+- Experiment logic
+- Prompt configurations
+- Evaluation methodology
+- Metrics
+- Generated outputs
+- Experimental reproducibility
+
 ## Experiment Execution
 
 Each experiment is implemented as a separate Google Colab notebook.
