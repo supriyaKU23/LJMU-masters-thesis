@@ -431,6 +431,62 @@ outputs/final_comparison/
 
 ---
 
+---
+
+# Benchmarking Framework
+
+A dedicated benchmarking pipeline is implemented for evaluating and comparing all experiments across:
+
+- Prompting techniques
+- LLM architectures
+- RAG and Non-RAG configurations
+
+The benchmarking framework supports:
+
+- Experiment ranking
+- Prompt ranking
+- Model ranking
+- RAG vs Non-RAG comparison
+- Composite benchmark scoring
+- Visualization-driven analysis
+
+---
+
+## Benchmarking Objectives
+
+The benchmarking pipeline evaluates:
+
+1. Which prompting technique performs best
+2. Which LLM performs best
+3. Whether RAG improves performance
+4. Which prompt-model combination achieves the best overall results
+
+---
+
+## Benchmarking Strategy
+
+The benchmarking methodology uses:
+
+- Metric normalization
+- Weighted composite scoring
+- Prompt-wise ranking
+- Model-wise ranking
+- RAG gain analysis
+
+Both summarization and role categorization tasks use separate benchmarking pipelines.
+
+---
+
+## Benchmarking Outputs
+
+The benchmarking pipeline generates:
+
+```text
+outputs/
+└── benchmarking/
+    ├── summarization/
+    └── role_categorization/
+
 ## Environment
 
 All experiments were executed in Google Colab.
