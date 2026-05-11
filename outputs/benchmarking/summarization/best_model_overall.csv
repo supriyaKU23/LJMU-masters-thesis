@@ -1,0 +1,7 @@
+rag_type,model_name,benchmark_score,rank
+NON_RAG,openai/gpt-oss-120b,0.5290563195080509,1
+NON_RAG,llama-3.3-70b-versatile,0.47239863619104144,2
+NON_RAG,llama-3.1-8b-instant,0.46105928832623666,3
+RAG,llama-3.3-70b-versatile,0.6500837050587042,1
+RAG,openai/gpt-oss-120b,0.557208560280857,2
+RAG,llama-3.1-8b-instant,0.45818792346770804,3

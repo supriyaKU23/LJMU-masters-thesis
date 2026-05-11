@@ -1,0 +1,16 @@
+rag_type,prompt_type,model_name,benchmark_score,model_rank
+RAG,chain_of_thought,llama-3.3-70b-versatile,0.6441657763122501,1
+RAG,chain_of_thought,openai/gpt-oss-120b,0.5786383074869627,2
+RAG,chain_of_thought,llama-3.1-8b-instant,0.5515029777406374,3
+RAG,few_shot,openai/gpt-oss-120b,0.7773962407183234,1
+RAG,few_shot,llama-3.3-70b-versatile,0.523433462513743,2
+RAG,few_shot,llama-3.1-8b-instant,0.3601068651706014,3
+RAG,self_consistency,llama-3.3-70b-versatile,0.7123219885475532,1
+RAG,self_consistency,openai/gpt-oss-120b,0.5429162388867874,2
+RAG,self_consistency,llama-3.1-8b-instant,0.49017288654446656,3
+RAG,style_based,llama-3.3-70b-versatile,0.6313619918279426,1
+RAG,style_based,openai/gpt-oss-120b,0.36866423324740566,2
+RAG,style_based,llama-3.1-8b-instant,0.3233159086818963,3
+RAG,zero_shot,llama-3.3-70b-versatile,0.7391353060920318,1
+RAG,zero_shot,llama-3.1-8b-instant,0.5658409792009386,2
+RAG,zero_shot,openai/gpt-oss-120b,0.5184277810648057,3

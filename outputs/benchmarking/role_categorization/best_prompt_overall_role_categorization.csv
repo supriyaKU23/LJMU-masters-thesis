@@ -1,0 +1,11 @@
+rag_type,prompt_type,benchmark_score,rank
+NON_RAG,zero_shot,0.5211492107607921,1
+NON_RAG,chain_of_thought,0.516687897597656,2
+NON_RAG,few_shot,0.509539349092037,3
+NON_RAG,self_consistency,0.5092862170937882,4
+NON_RAG,style_based,0.4625540005448625,5
+RAG,style_based,0.9033993943426791,1
+RAG,zero_shot,0.8616781751038594,2
+RAG,self_consistency,0.8586593067415843,3
+RAG,chain_of_thought,0.8033853412140902,4
+RAG,few_shot,0.6731633689173985,5
